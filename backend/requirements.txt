@@ -1,0 +1,6 @@
+fastapi
+firebase-admin
+pyqrcode
+pypng
+Pillow
+uvicorn

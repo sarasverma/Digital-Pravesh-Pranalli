@@ -15,7 +15,6 @@ import { toast } from "react-toastify";
 import Carousel from "../Components/Carousel";
 import CountUp from "react-countup";
 import { Container, Typography } from "@mui/material";
-import { set } from "mongoose";
 
 const Home = () => {
   const [loading, setLoading] = useState(false);

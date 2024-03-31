@@ -2,5 +2,6 @@ fastapi
 firebase-admin
 pyqrcode
 pypng
+pydantic
 Pillow
 uvicorn

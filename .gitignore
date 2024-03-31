@@ -27,3 +27,4 @@ __pycache__
 #secrets files
 *.env
 cred.json
+google-services.json

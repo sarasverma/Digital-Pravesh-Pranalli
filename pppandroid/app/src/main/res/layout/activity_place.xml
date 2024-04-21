@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:paddingBottom="60dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/pimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_corner_radius="10"
+                    app:iss_delay="1000"
+                    app:iss_period="1000"
+                    app:iss_title_background="@drawable/default_gradient" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/pmainInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:flexWrap="wrap"
+                app:flexDirection="column"
+                app:justifyContent="center"
+                app:alignItems="center"
+                app:layout_constraintBottom_toTopOf="@+id/ploc_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toBottomOf="@+id/photo"
+                app:layout_constraintVertical_bias="0.5">
+
+                <TextView
+                    android:id="@+id/pName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pname"
+                    android:textSize="24sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/photo" />
+
+                <TextView
+                    android:id="@+id/pprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="pprice"
+                    android:textColor="#FF6347"
+                    android:textSize="20sp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/ploc_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:flexWrap="wrap"
+                app:layout_constraintBottom_toTopOf="@+id/ptime_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pmainInfo"
+                app:layout_constraintVertical_bias="0.5"
+                tools:ignore="MissingClass">
+
+                <ImageView
+                    android:id="@+id/plocImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/location" />
+
+                <TextView
+                    android:id="@+id/loc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ploc" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/ptime_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:flexWrap="wrap"
+                app:layout_constraintBottom_toTopOf="@+id/pcontact_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ploc_container"
+                app:layout_constraintVertical_bias="0.5">
+
+                <ImageView
+                    android:id="@+id/ptimeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/time" />
+
+                <TextView
+                    android:id="@+id/ptimeDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="days" />
+
+                <TextView
+                    android:id="@+id/ptimeHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="hours" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/pcontact_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:flexWrap="wrap"
+                app:layout_constraintBottom_toTopOf="@+id/pdescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ptime_container"
+                app:layout_constraintVertical_bias="0.5"
+                tools:ignore="MissingClass">
+
+                <ImageView
+                    android:id="@+id/pcontactImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/contact" />
+
+                <TextView
+                    android:id="@+id/pno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pno" />
+
+                <TextView
+                    android:id="@+id/pemail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="pemail" />
+
+                <TextView
+                    android:id="@+id/pwebsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:text="pwebsite" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <TextView
+                android:id="@+id/pdescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="pdescription"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/pfacilities"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pcontact_container"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/pfacilities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap"
+                app:layout_constraintBottom_toTopOf="@+id/additionalInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pdescription"
+                app:layout_constraintVertical_bias="0.5">
+
+                <CheckBox
+                    android:id="@+id/checkBoxCafeteria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Cafeteria"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxGuidedTours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Guided Tours"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxParking"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Parking"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxRestrooms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Restrooms"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxSouvenirShop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Souvenir Shop"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxWheelchairAccessible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:text="Wheelchair Access"
+                    android:textSize="12sp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/additionalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pfacilities"
+                app:layout_constraintVertical_bias="0.5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Additional Information"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Near By Attraction"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/nearByAttraction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nearby"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Visitor Tips"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/visitorTips"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="vistiorTips"
+                        android:textSize="10sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Restriction"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/restriction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Restriction"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buyTicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Buy Ticket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

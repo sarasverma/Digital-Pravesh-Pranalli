@@ -1,6 +1,7 @@
 package com.saras.pppandroid.frags;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -19,6 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.saras.pppandroid.activity.PlaceActivity;
 import com.saras.pppandroid.model.Place;
 import com.saras.pppandroid.util.PlaceAdapter;
 import com.saras.pppandroid.R;
@@ -55,7 +59,14 @@ public class Home extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         placeArrayList = new ArrayList<Place>();
-        placeAdapter = new PlaceAdapter(getActivity(), placeArrayList);
+        placeAdapter = new PlaceAdapter(getActivity(), placeArrayList, new PlaceAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Place place) {
+                Intent i = new Intent(getActivity(), PlaceActivity.class);
+                i.putExtra("placeName", place.getPlaceName());
+                startActivity(i);
+            }
+        });
 
         recyclerView.setAdapter(placeAdapter);
 

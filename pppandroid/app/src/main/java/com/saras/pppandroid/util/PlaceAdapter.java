@@ -20,12 +20,20 @@ import java.util.List;
 
 public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHolder> {
 
+    public interface OnItemClickListener {
+        void onItemClick(Place place);
+    }
+
+
    Context context;
    ArrayList<Place> placeArrayList;
+   private OnItemClickListener listener;
 
-    public PlaceAdapter(Context context, ArrayList<Place> placeArrayList) {
+
+    public PlaceAdapter(Context context, ArrayList<Place> placeArrayList, OnItemClickListener listener) {
         this.context = context;
         this.placeArrayList = placeArrayList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -53,6 +61,9 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
         }
 
         holder.imageSlider.setImageList(slideImgs, ScaleTypes.FIT);
+
+        // add click listener (bcz images are having more zindex, click is not working on them )
+        holder.bind(placeArrayList.get(position), listener);
     }
 
     @Override
@@ -60,7 +71,7 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
         return placeArrayList.size();
     }
 
-    public static class  PlaceViewHolder extends RecyclerView.ViewHolder{
+    public static class PlaceViewHolder extends RecyclerView.ViewHolder{
 
         TextView placeName;
         ImageSlider imageSlider;
@@ -71,7 +82,15 @@ public class PlaceAdapter  extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHo
 
             placeName = itemView.findViewById(R.id.placeName);
             imageSlider = itemView.findViewById(R.id.imageSlider);
-
         }
+
+        public void bind(final Place place, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(place);
+                }
+            });
+        }
+
     }
 }

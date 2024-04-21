@@ -18,6 +18,9 @@
         android:theme="@style/Theme.pppandroid"
         tools:targetApi="31">
         <activity
+            android:name=".activity.PlaceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ScanResult"
             android:exported="false" />
         <activity
@@ -35,7 +38,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
